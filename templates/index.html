@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock title %} 
+{% block body %}
+<div class="container-fluid px-0">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/static/4.jpeg" class="d-block w-100" height="300" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Private Hostal Hostal for Everyone</h5>
+          <p> Private Hostal Provide Best Pg on Your Location </p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/static/1.jpg" class="d-block w-100" height="300" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Private Hostal Hostal for Everyone</h5>
+          <p> Private Hostal Provide Best Pg on Your Location </p>
+        </div>
+      </div> 
+      <div class="carousel-item">
+        <img src="/static/2.jpg" class="d-block w-100" height="300" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Private Hostal Hostal for Everyone</h5>
+          <p> Private Hostal Provide Best Pg on Your Location </p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+   {% for a in Data %}
+      <div class="col">
+        <div class="card shadow-sm" >
+          <a href="/detail/{{a.name}}/{{a.uid}}" >
+          <img width="100%" height="225" src="/media/{{a.image}}">
+          </a>          <div class="card-body">
+            <h5 class="card-text text-center fw-semibold text-capitalize"x="50%" y="50%" >{{a.name}}</ph5>
+            <h5 class="card-text text-capitalize fs-6">{{a.address}}</h5>
+            <h5 class="card-text text-capitalize fs-6"> {{a.occupancy}}</h5>
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+    
+   {% empty %}
+    <h3 class='text-center'> NO Data forund </h3>
+
+   {% endfor %}  
+      </div>
+  
+  
+  </div>
+</div>
+{% endblock body %}
